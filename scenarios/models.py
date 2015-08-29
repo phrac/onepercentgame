@@ -1,15 +1,6 @@
 from django.db import models
 
-
-class Scenario(models.Model):
-    question = models.TextField()
-    level = models.IntegerField(max_length=3, null=True)
-    
-class ScenarioChoice(models.Model):
-    scenario = models.ForeignKey(Scenario)
-
 class Outcome(models.Model):
-    scenario = models.ForeignKey(ScenarioChoice)
     karma_value = models.DecimalField(max_digits=6, decimal_places=2)
     wrath_value = models.IntegerField(default=0, null=True)
     greed_value = models.IntegerField(default=0, null=True)
@@ -21,6 +12,12 @@ class Outcome(models.Model):
 
     outcome_text = models.TextField()
     
+class ScenarioChoice(models.Model):
+    choice_text = models.TextField()
+    outcomes = models.ManyToManyField(Outcome)
 
-
+class Scenario(models.Model):
+    question = models.TextField()
+    level = models.IntegerField(null=True)
+    choices = models.ManyToManyField(ScenarioChoice)
     
