@@ -8,7 +8,7 @@ class Player(models.Model):
     money = models.DecimalField(max_digits=15, decimal_places=2, default=500.00)
     game_age = models.IntegerField(default=18)
 
-    percent_level = models.NumberField(max_digits=4, decimal_places=2)
+    percent_level = models.DecimalField(max_digits=4, decimal_places=2)
     karma_level = models.IntegerField(default=25)
     wrath_level = models.IntegerField(default=0)
     greed_level = models.IntegerField(default=0)

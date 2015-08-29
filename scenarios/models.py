@@ -3,7 +3,7 @@ from django.db import models
 
 class Scenario(models.Model):
     question = models.TextField()
-    level = models.IntegerField(max_length=3)
+    level = models.IntegerField(max_length=3, null=True)
     
 class ScenarioChoice(models.Model):
     scenario = models.ForeignKey(Scenario)
