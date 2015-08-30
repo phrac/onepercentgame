@@ -8,7 +8,7 @@ class Player(models.Model):
     turns_played = models.IntegerField(default=0)
     money = models.DecimalField(max_digits=15, decimal_places=2, default=500.00)
     game_age = models.IntegerField(default=18)
-    inventory_items = models.ManyToManyField(Item, null=True, blank=True,
+    inventory_items = models.ManyToManyField(Item, default=None, blank=True,
                                              through='PlayerInventoryItem')
 
     percent_level = models.DecimalField(max_digits=4, decimal_places=2)

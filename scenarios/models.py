@@ -1,4 +1,5 @@
 from django.db import models
+from items.models import Item
 
 
 class Scenario(models.Model):
@@ -8,6 +9,10 @@ class Scenario(models.Model):
 class ScenarioChoice(models.Model):
     scenario = models.ForeignKey(Scenario)
     choice_text = models.TextField()
+    inventory_required = models.ManyToManyField(Item, default=None,
+                                                blank=True)
+    cash_required = models.DecimalField(max_digits=11, decimal_places=2,
+                                        default=0, blank=True)
 
 class Outcome(models.Model):
     models.ForeignKey(ScenarioChoice)
