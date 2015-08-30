@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'players',
     'scenarios',
+    'items',
 )
 
 MIDDLEWARE_CLASSES = (
